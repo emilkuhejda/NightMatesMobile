@@ -83,6 +83,12 @@
   <ItemGroup>
     <Compile Include="Configuration\AndroidBootstrapper.cs" />
     <Compile Include="Localization\Localizer.cs" />
+    <Compile Include="Logging\NLogFileReader.cs" />
+    <Compile Include="Logging\NLogLoggerConfiguration.cs" />
+    <Compile Include="Logging\NLogLoggerFactory.cs" />
+    <Compile Include="Logging\NLogTargets.ConsoleTarget.cs" />
+    <Compile Include="Logging\NLogTargets.DebugTarget.cs" />
+    <Compile Include="Logging\NLogTargets.FileTarget.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,6 +127,10 @@
     <ProjectReference Include="..\..\Components\NightMates.Domain\NightMates.Domain.csproj">
       <Project>{3c3ff970-4065-4ae5-87bc-85ccedf5d620}</Project>
       <Name>NightMates.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\NightMates.Logging\NightMates.Logging.csproj">
+      <Project>{9e065f80-44c6-4e6e-b01d-e237e94c32b8}</Project>
+      <Name>NightMates.Logging</Name>
     </ProjectReference>
     <ProjectReference Include="..\NightMates.Mobile\NightMates.Mobile.csproj">
       <Project>{7EA671C1-B551-4736-BB06-16B7BAEB8423}</Project>
