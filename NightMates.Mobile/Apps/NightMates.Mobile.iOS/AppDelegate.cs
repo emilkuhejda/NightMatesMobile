@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
+using NightMates.Mobile.iOS.Configuration;
 using UIKit;
 
 namespace NightMates.Mobile.iOS
@@ -23,7 +20,9 @@ namespace NightMates.Mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            var bootstrapper = new OsxBootstrapper();
+            LoadApplication(new App(bootstrapper));
 
             return base.FinishedLaunching(app, options);
         }

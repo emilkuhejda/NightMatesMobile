@@ -1,11 +1,7 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
+using NightMates.Mobile.Droid.Configuration;
 
 namespace NightMates.Mobile.Droid
 {
@@ -19,7 +15,9 @@ namespace NightMates.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            LoadApplication(new App());
+
+            var bootstrapper = new AndroidBootstrapper();
+            LoadApplication(new App(bootstrapper));
         }
     }
 }

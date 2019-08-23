@@ -90,6 +90,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Configuration\OsxBootstrapper.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
@@ -155,8 +156,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Prism.Unity.Forms">
+      <Version>7.2.0.1367</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>4.2.0.709249</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
 </Project>

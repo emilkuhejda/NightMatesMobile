@@ -10,7 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Prism.Unity.Forms" Version="7.2.0.1367" />
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\NightMates.Business\NightMates.Business.csproj" />
+    <ProjectReference Include="..\..\Components\NightMates.Common\NightMates.Common.csproj" />
+    <ProjectReference Include="..\..\Components\NightMates.DataAccess\NightMates.DataAccess.csproj" />
+    <ProjectReference Include="..\..\Components\NightMates.Domain\NightMates.Domain.csproj" />
+    <ProjectReference Include="..\..\Components\NightMates.Logging\NightMates.Logging.csproj" />
+    <ProjectReference Include="..\..\Components\NightMates.Resources\NightMates.Resources.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,5 +30,11 @@
     <None Update="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
