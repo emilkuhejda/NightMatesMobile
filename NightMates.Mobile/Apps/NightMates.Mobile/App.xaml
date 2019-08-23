@@ -2,6 +2,432 @@
 <unity:PrismApplication x:Class="NightMates.Mobile.App"
                         xmlns="http://xamarin.com/schemas/2014/forms"
                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                        xmlns:controls="clr-namespace:NightMates.Mobile.Controls;assembly=NightMates.Mobile"
+                        xmlns:converters="clr-namespace:NightMates.Mobile.Converters;assembly=NightMates.Mobile"
+                        xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+                        xmlns:localization="clr-namespace:NightMates.Mobile.Localization;assembly=NightMates.Mobile"
+                        xmlns:resourceKeys="clr-namespace:NightMates.Resources.Localization;assembly=NightMates.Resources"
                         xmlns:unity="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms">
-    <unity:PrismApplication.Resources />
+    <unity:PrismApplication.Resources>
+        <ResourceDictionary>
+            <!--  Paddings  -->
+            <x:Double x:Key="SmallSpacing">4</x:Double>
+            <x:Double x:Key="MediumSpacing">8</x:Double>
+            <x:Double x:Key="StandardSpacing">16</x:Double>
+
+            <Thickness x:Key="SmallPadding">4</Thickness>
+            <Thickness x:Key="MediumPadding">8</Thickness>
+            <Thickness x:Key="StandardPadding"
+                       Bottom="{StaticResource StandardSpacing}"
+                       Left="{StaticResource StandardSpacing}"
+                       Right="{StaticResource StandardSpacing}"
+                       Top="{StaticResource StandardSpacing}" />
+
+            <!--  Colors  -->
+            <!--  Source: https://material.io/guidelines/style/color.html#color-color-palette  -->
+            <Color x:Key="ColorGrey50">#FAFAFA</Color>
+            <Color x:Key="ColorGrey100">#F5F5F5</Color>
+            <Color x:Key="ColorGrey200">#EEEEEE</Color>
+            <Color x:Key="ColorGrey300">#E0E0E0</Color>
+            <Color x:Key="ColorGrey400">#BDBDBD</Color>
+            <Color x:Key="ColorGrey500">#9E9E9E</Color>
+            <Color x:Key="ColorGrey600">#757575</Color>
+            <Color x:Key="ColorGrey700">#616161</Color>
+            <Color x:Key="ColorGrey800">#424242</Color>
+            <Color x:Key="ColorGrey900">#212121</Color>
+            <Color x:Key="ColorBlack">#000000</Color>
+            <Color x:Key="ColorWhite">#FFFFFF</Color>
+
+            <Color x:Key="WindowBackground">#FFFFFF</Color>
+            <Color x:Key="PrimaryTextColor">#616161</Color>
+            <Color x:Key="ColorPrimary">#FF1ABC9C</Color>
+            <Color x:Key="ColorPrimaryBright">#FF28E2BC</Color>
+            <Color x:Key="ColorPrimaryDark">#FF1DB496</Color>
+            <Color x:Key="ApplicationTitleTextColor">#FFFFFF</Color>
+            <Color x:Key="NavigationBarGray">#D8D8D8</Color>
+            <Color x:Key="Divider">#C8C7CC</Color>
+            <Color x:Key="ActionBarBorderColor">#BDBDBD</Color>
+            <Color x:Key="ActionBarTileBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="ActionBarTileBackgroundColorHover">#E0E0E0</Color>
+            <Color x:Key="ActionBarTileBackgroundColorTouch">#BDBDBD</Color>
+            <Color x:Key="PlayerBackground">#D2F9F1</Color>
+            <Color x:Key="RecorderResultBackground">#c3d5d5</Color>
+
+            <!--  Fonts  -->
+            <OnPlatform x:Key="FontFamilyDancingScriptRegular"
+                        x:TypeArguments="x:String"
+                        Android="DancingScript-Regular.ttf#DancingScript-Regular"
+                        WinPhone="/Assets/Fonts/DancingScript-Regular.ttf#DancingScript-Regular"
+                        iOS="DancingScript-Regular" />
+
+            <OnPlatform x:Key="FontFamilyQuicksandLight"
+                        x:TypeArguments="x:String"
+                        Android="Quicksand-Light.ttf#Quicksand-Light"
+                        WinPhone="/Assets/Fonts/Quicksand-Light.ttf#Quicksand-Light"
+                        iOS="Quicksand-Light" />
+
+            <OnPlatform x:Key="FontFamilyQuicksandRegular"
+                        x:TypeArguments="x:String"
+                        Android="Quicksand-Regular.ttf#Quicksand-Regular"
+                        WinPhone="/Assets/Fonts/Quicksand-Regular.ttf#Quicksand-Regular"
+                        iOS="Quicksand-Regular" />
+
+            <OnPlatform x:Key="FontFamilyQuicksandMedium"
+                        x:TypeArguments="x:String"
+                        Android="Quicksand-Medium.ttf#Quicksand-Medium"
+                        WinPhone="/Assets/Fonts/Quicksand-Medium.ttf#Quicksand-Medium"
+                        iOS="Quicksand-Medium" />
+
+            <OnPlatform x:Key="FontFamilyQuicksandBold"
+                        x:TypeArguments="x:String"
+                        Android="Quicksand-Bold.ttf#Quicksand-Bold"
+                        WinPhone="/Assets/Fonts/Quicksand-Bold.ttf#Quicksand-Bold"
+                        iOS="Quicksand-Bold" />
+
+            <!--  Font Sizes  -->
+            <OnPlatform x:Key="LittleSize"
+                        x:TypeArguments="x:Double"
+                        Android="12"
+                        WinPhone="12"
+                        iOS="11" />
+
+            <OnPlatform x:Key="MidMediumSize"
+                        x:TypeArguments="x:Double"
+                        Android="14"
+                        WinPhone="14"
+                        iOS="12" />
+
+            <OnPlatform x:Key="MediumSize"
+                        x:TypeArguments="x:Double"
+                        Android="16"
+                        WinPhone="16"
+                        iOS="14" />
+
+            <OnPlatform x:Key="LargeSize"
+                        x:TypeArguments="x:Double"
+                        Android="18"
+                        WinPhone="18"
+                        iOS="16" />
+
+            <OnPlatform x:Key="LargerSize"
+                        x:TypeArguments="x:Double"
+                        Android="20"
+                        WinPhone="20"
+                        iOS="18" />
+
+            <OnPlatform x:Key="BigSize"
+                        x:TypeArguments="x:Double"
+                        Android="24"
+                        WinPhone="24"
+                        iOS="20" />
+
+            <OnPlatform x:Key="ExtraBigSize"
+                        x:TypeArguments="x:Double"
+                        Android="32"
+                        WinPhone="32"
+                        iOS="24" />
+
+            <OnPlatform x:Key="HugeSize"
+                        x:TypeArguments="x:Double"
+                        Android="48"
+                        WinPhone="48"
+                        iOS="32" />
+
+            <!--  Margins  -->
+            <OnPlatform x:Key="TitleTrademarkMargin"
+                        x:TypeArguments="Thickness"
+                        Android="0, 2, 0, 0"
+                        WinPhone="0, 2, 0, 0"
+                        iOS="0, 0, 0, 0" />
+
+            <!--  Converters  -->
+            <converters:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+            <converters:NullToBoolConverter x:Key="NullToBoolConverter" />
+
+            <!--  Styles  -->
+            <Style TargetType="Editor">
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HorizontalTextAlignment" Value="Start" />
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+
+            <Style x:Key="LabelSmall" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource LittleSize}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Opacity" Value="1.0" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="Margin">
+                    <OnPlatform x:TypeArguments="Thickness"
+                                Android="4, 0, 0, 0"
+                                WinPhone="0, 0, 0, 0"
+                                iOS="0, 0, 0, 0" />
+                </Setter>
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+
+            <Style x:Key="LabelBoldStyle"
+                   BasedOn="{StaticResource LabelStyle}"
+                   TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandBold}" />
+            </Style>
+
+            <Style x:Key="TitleLabelSyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontSize" Value="{StaticResource LargeSize}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandBold}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Opacity" Value="1.0" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+                <Setter Property="HeightRequest" Value="32" />
+            </Style>
+
+            <Style x:Key="MainTitleLabelSyle"
+                   BasedOn="{StaticResource TitleLabelSyle}"
+                   TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ApplicationTitleTextColor}" />
+                <Setter Property="FontSize" Value="{StaticResource BigSize}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyDancingScriptRegular}" />
+            </Style>
+
+            <Style x:Key="DropDownButtonStyle" TargetType="controls:DrillDownButton">
+                <Setter Property="RowHeight" Value="42" />
+                <Setter Property="BackgroundColor" Value="#F0F0F0" />
+                <Setter Property="OutlineColor" Value="#DEDEDE" />
+            </Style>
+
+            <Style x:Key="CustomButtonStyle" TargetType="controls:CustomButton">
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="BorderRadius" Value="6" />
+                <Setter Property="TextColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="FontSize" Value="{StaticResource MediumSize}" />
+                <Setter Property="FontAttributes" Value="None" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+            </Style>
+
+            <Style x:Key="CustomButtonPrimaryStyle"
+                   BasedOn="{StaticResource CustomButtonStyle}"
+                   TargetType="controls:CustomButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="BorderColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="BackgroundColorPressed" Value="{StaticResource ColorPrimaryDark}" />
+                <Setter Property="BorderColorPressed" Value="{StaticResource ColorPrimaryDark}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+                <Setter Property="TextColor" Value="{StaticResource ColorGrey300}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                        <Setter Property="BorderColor" Value="{StaticResource ColorPrimary}" />
+                    </Trigger>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource ColorGrey300}" />
+                        <Setter Property="BorderColor" Value="{StaticResource ColorGrey300}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="CustomButtonSecondaryStyle"
+                   BasedOn="{StaticResource CustomButtonStyle}"
+                   TargetType="controls:CustomButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource WindowBackground}" />
+                <Setter Property="BackgroundColorPressed" Value="{StaticResource WindowBackground}" />
+                <Setter Property="BorderColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="BorderColorPressed" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandRegular}" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                        <Setter Property="BackgroundColor" Value="{StaticResource ColorWhite}" />
+                        <Setter Property="BorderColor" Value="{StaticResource ColorPrimary}" />
+                    </Trigger>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource WindowBackground}" />
+                        <Setter Property="BorderColor" Value="{StaticResource ColorGrey300}" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="ActionButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="BorderColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource FontFamilyQuicksandBold}" />
+                <Setter Property="TextColor" Value="{StaticResource ColorWhite}" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style x:Key="InfoTileBackground" TargetType="Frame">
+                <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="Padding" Value="10,2,10,2" />
+                <Setter Property="HeightRequest" Value="20" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+
+            <!--  Navigation Bar  -->
+            <x:Double x:Key="HeaderImageHeight">60</x:Double>
+            <GridLength x:Key="NavigationBarRow1Height">52</GridLength>
+            <converters:BoolToGridLengthConverter x:Key="BoolToNavigationBarRow1HeightConverter"
+                                                  FalseValue="0"
+                                                  TrueValue="{StaticResource NavigationBarRow1Height}" />
+
+            <ControlTemplate x:Key="MainPageTemplate">
+                <Grid x:Name="MainHeaderGrid"
+                      Margin="0"
+                      Padding="0"
+                      BindingContext="{TemplateBinding BindingContext}"
+                      ColumnSpacing="0"
+                      HorizontalOptions="FillAndExpand"
+                      RowSpacing="0"
+                      VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <!--  Headline row  -->
+                        <RowDefinition Height="{Binding HasTitleBar, Mode=OneWay, Converter={StaticResource BoolToNavigationBarRow1HeightConverter}}" />
+                        <!--  Content row  -->
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  Header Row 1  -->
+                    <Grid Grid.Row="0"
+                          Margin="0"
+                          Padding="0"
+                          BackgroundColor="{StaticResource ColorPrimary}"
+                          BindingContext="{TemplateBinding BindingContext}"
+                          ColumnSpacing="0"
+                          HorizontalOptions="FillAndExpand"
+                          IsVisible="{TemplateBinding BindingContext.HasTitleBar}"
+                          RowSpacing="0"
+                          VerticalOptions="FillAndExpand">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="{StaticResource NavigationBarRow1Height}" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="90" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--  Back navigation icon  -->
+                        <Grid Grid.Row="0"
+                              Grid.Column="0"
+                              Margin="0"
+                              Padding="0"
+                              BackgroundColor="Transparent"
+                              ColumnSpacing="0"
+                              HeightRequest="39"
+                              HorizontalOptions="StartAndExpand"
+                              IsVisible="{TemplateBinding BindingContext.CanGoBack}"
+                              RowSpacing="0"
+                              VerticalOptions="CenterAndExpand"
+                              WidthRequest="39">
+                            <forms:SvgCachedImage Margin="0"
+                                                  Aspect="AspectFit"
+                                                  BackgroundColor="Transparent"
+                                                  BindingContext="{TemplateBinding BindingContext}"
+                                                  HeightRequest="30"
+                                                  HorizontalOptions="CenterAndExpand"
+                                                  InputTransparent="True"
+                                                  Source="resource://NightMates.Mobile.Resources.Images.Back.svg"
+                                                  VerticalOptions="CenterAndExpand" />
+
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer BindingContext="{TemplateBinding BindingContext}" Command="{TemplateBinding BindingContext.NavigateBackCommand}" />
+                            </Grid.GestureRecognizers>
+                        </Grid>
+
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center"
+                               Style="{StaticResource MainTitleLabelSyle}"
+                               Text="{localization:Localization Text={x:Static resourceKeys:TranslationKeys.ApplicationTitle}}"
+                               VerticalOptions="FillAndExpand"
+                               VerticalTextAlignment="Center" />
+
+                        <controls:StackedList Grid.Row="0"
+                                              Grid.Column="2"
+                                              Margin="0"
+                                              BackgroundColor="Transparent"
+                                              BindingContext="{TemplateBinding Parent}"
+                                              HorizontalOptions="EndAndExpand"
+                                              ItemsSource="{TemplateBinding RightNavigationToolbarItems,
+                                                                            Mode=OneWay}"
+                                              ListOrientation="Horizontal"
+                                              Spacing="0"
+                                              VerticalOptions="CenterAndExpand">
+                            <controls:StackedList.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Margin="0"
+                                          Padding="0"
+                                          ColumnSpacing="0"
+                                          HeightRequest="39"
+                                          RowSpacing="0"
+                                          WidthRequest="39">
+                                        <StackLayout Padding="0" Orientation="Vertical">
+                                            <Grid BackgroundColor="Transparent"
+                                                  HeightRequest="30"
+                                                  HorizontalOptions="CenterAndExpand"
+                                                  VerticalOptions="CenterAndExpand"
+                                                  WidthRequest="30">
+                                                <forms:SvgCachedImage Margin="0"
+                                                                      Aspect="AspectFit"
+                                                                      BackgroundColor="Transparent"
+                                                                      HeightRequest="30"
+                                                                      HorizontalOptions="CenterAndExpand"
+                                                                      InputTransparent="True"
+                                                                      Source="{Binding Source,
+                                                                                       Mode=OneWay}"
+                                                                      VerticalOptions="CenterAndExpand" />
+                                                <Grid.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Command}" />
+                                                </Grid.GestureRecognizers>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Grid>
+                                </DataTemplate>
+                            </controls:StackedList.ItemTemplate>
+                        </controls:StackedList>
+                    </Grid>
+
+                    <!--  Page Content  -->
+                    <ContentPresenter Grid.Row="1"
+                                      Grid.Column="0"
+                                      HorizontalOptions="FillAndExpand"
+                                      VerticalOptions="FillAndExpand" />
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
+    </unity:PrismApplication.Resources>
 </unity:PrismApplication>

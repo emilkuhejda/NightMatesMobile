@@ -1,4 +1,5 @@
-﻿using Foundation;
+﻿using FFImageLoading.Forms.Platform;
+using Foundation;
 using NightMates.Mobile.iOS.Configuration;
 using UIKit;
 
@@ -20,6 +21,8 @@ namespace NightMates.Mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            CachedImageRenderer.Init();
 
             var bootstrapper = new OsxBootstrapper();
             LoadApplication(new App(bootstrapper));

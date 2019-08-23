@@ -115,6 +115,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Providers\DirectoryProvider.cs" />
+    <Compile Include="Renderers\NoBarsScrollViewerRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -176,6 +177,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>4.2.0.709249</Version>
     </PackageReference>
@@ -202,7 +209,13 @@
     <None Include="..\..\Global\NightMates.CodeAnalysis.ruleset">
       <Link>Properties\NightMates.CodeAnalysis.ruleset</Link>
     </None>
+    <Content Include="Assets\Fonts\DancingScript-Regular.ttf" />
+    <Content Include="Assets\Fonts\Quicksand-Bold.ttf" />
+    <Content Include="Assets\Fonts\Quicksand-Light.ttf" />
+    <Content Include="Assets\Fonts\Quicksand-Medium.ttf" />
+    <Content Include="Assets\Fonts\Quicksand-Regular.ttf" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

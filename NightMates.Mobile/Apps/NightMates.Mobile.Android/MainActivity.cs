@@ -1,6 +1,8 @@
-﻿using Android.App;
+﻿using Acr.UserDialogs;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Forms.Platform;
 using NightMates.Mobile.Droid.Configuration;
 
 namespace NightMates.Mobile.Droid
@@ -15,6 +17,9 @@ namespace NightMates.Mobile.Droid
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+
+            CachedImageRenderer.Init(null);
+            UserDialogs.Init(this);
 
             var bootstrapper = new AndroidBootstrapper();
             LoadApplication(new App(bootstrapper));

@@ -85,6 +85,12 @@
     <PackageReference Include="Xamarin.Android.Support.Media.Compat">
       <Version>28.0.0.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms">
+      <Version>2.4.11.982</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
@@ -108,12 +114,19 @@
     <Compile Include="Logging\NLogTargets.FileTarget.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Providers\DirectoryProvider.cs" />
+    <Compile Include="Renderers\NoBarsScrollViewerRenderer.cs" />
+    <Compile Include="Renderers\NightMatesEditorRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Global\NightMates.CodeAnalysis.ruleset">
       <Link>Properties\NightMates.CodeAnalysis.ruleset</Link>
     </None>
+    <AndroidAsset Include="Assets\DancingScript-Regular.ttf" />
+    <AndroidAsset Include="Assets\Quicksand-Bold.ttf" />
+    <AndroidAsset Include="Assets\Quicksand-Light.ttf" />
+    <AndroidAsset Include="Assets\Quicksand-Medium.ttf" />
+    <AndroidAsset Include="Assets\Quicksand-Regular.ttf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

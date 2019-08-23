@@ -105,6 +105,15 @@
   <data name="Slovak" xml:space="preserve">
     <value>Slovak</value>
   </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>NightMates</value>
+  </data>
+  <data name="ActivityIndicatorCaptionText" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="LoadingData" xml:space="preserve">
+    <value>Loading data....</value>
+  </data>
   <data name="MainPageTitle" xml:space="preserve">
     <value>Main page</value>
   </data>
