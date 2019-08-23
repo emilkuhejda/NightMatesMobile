@@ -1,4 +1,6 @@
-﻿using NightMates.Mobile.Navigation;
+﻿using NightMates.Common.Utils;
+using NightMates.DataAccess;
+using NightMates.Mobile.Navigation;
 using Prism;
 using Prism.Ioc;
 using Xamarin.Forms.Xaml;
@@ -21,7 +23,14 @@ namespace NightMates.Mobile
         {
             InitializeComponent();
 
+            InitializeStorage();
+
             NavigationService.NavigateAsync($"/{Pages.Login}");
+        }
+
+        private void InitializeStorage()
+        {
+            AsyncHelper.RunSync(() => Container.Resolve<IStorageInitializer>().InitializeAsync());
         }
     }
 }

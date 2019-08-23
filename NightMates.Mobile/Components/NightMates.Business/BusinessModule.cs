@@ -1,4 +1,6 @@
-﻿using NightMates.Common;
+﻿using NightMates.Business.Services;
+using NightMates.Common;
+using NightMates.Domain.Interfaces.Services;
 using Prism.Ioc;
 
 namespace NightMates.Business
@@ -7,6 +9,7 @@ namespace NightMates.Business
     {
         public void RegisterServices(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IInternalValueService, InternalValueService>();
         }
     }
 }

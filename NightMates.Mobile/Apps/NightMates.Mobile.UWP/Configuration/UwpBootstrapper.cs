@@ -5,6 +5,7 @@ using NightMates.Mobile.Configuration;
 using NightMates.Mobile.UWP.ExceptionHandling;
 using NightMates.Mobile.UWP.Localization;
 using NightMates.Mobile.UWP.Logging;
+using NightMates.Mobile.UWP.Providers;
 using Prism.Ioc;
 
 namespace NightMates.Mobile.UWP.Configuration
@@ -14,6 +15,7 @@ namespace NightMates.Mobile.UWP.Configuration
         protected override void RegisterPlatformServices(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<ILocalizer, Localizer>();
+            containerRegistry.RegisterSingleton<IDirectoryProvider, DirectoryProvider>();
             containerRegistry.RegisterSingleton<ILoggerConfiguration, NLogLoggerConfiguration>();
             containerRegistry.RegisterSingleton<ILogFileReader, NLogFileReader>();
             containerRegistry.RegisterSingleton<ILoggerFactory, NLogLoggerFactory>();

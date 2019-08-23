@@ -107,6 +107,7 @@
     <Compile Include="Logging\NLogTargets.DebugTarget.cs" />
     <Compile Include="Logging\NLogTargets.FileTarget.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Providers\DirectoryProvider.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
   </ItemGroup>
   <ItemGroup>
