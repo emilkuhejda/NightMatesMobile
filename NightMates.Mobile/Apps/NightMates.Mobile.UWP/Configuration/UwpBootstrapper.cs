@@ -1,4 +1,6 @@
-﻿using NightMates.Mobile.Configuration;
+﻿using NightMates.Domain.Interfaces.Required;
+using NightMates.Mobile.Configuration;
+using NightMates.Mobile.UWP.Localization;
 using Prism.Ioc;
 
 namespace NightMates.Mobile.UWP.Configuration
@@ -7,6 +9,7 @@ namespace NightMates.Mobile.UWP.Configuration
     {
         protected override void RegisterPlatformServices(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<ILocalizer, Localizer>();
         }
     }
 }
