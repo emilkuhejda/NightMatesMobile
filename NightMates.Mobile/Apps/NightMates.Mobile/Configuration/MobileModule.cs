@@ -14,6 +14,7 @@ namespace NightMates.Mobile.Configuration
     {
         public void RegisterServices(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<IDialogService, DialogService>();
             containerRegistry.RegisterSingleton<IAppCenterMetricsService, AppCenterMetricsService>();
             containerRegistry.RegisterSingleton<IExceptionHandlingStrategy, ExceptionHandlingStrategy>();
 

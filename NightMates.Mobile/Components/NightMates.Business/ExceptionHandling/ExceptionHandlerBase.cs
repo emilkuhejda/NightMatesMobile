@@ -40,11 +40,11 @@ namespace NightMates.Business.ExceptionHandling
 
         protected abstract void Detach();
 
-        private void OnTaskSchedulerUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
+        private async void OnTaskSchedulerUnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
             if (e.Exception != null)
             {
-                var isHandled = HandleException(e.Exception);
+                var isHandled = await HandleException(e.Exception).ConfigureAwait(false);
                 if (isHandled)
                 {
                     e.SetObserved();
@@ -52,7 +52,7 @@ namespace NightMates.Business.ExceptionHandling
             }
         }
 
-        protected bool HandleException(Exception exception)
+        protected Task<bool> HandleException(Exception exception)
         {
             return _exceptionHandlingStrategy.HandleException(exception);
         }

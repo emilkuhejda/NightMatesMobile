@@ -11,9 +11,9 @@ namespace NightMates.Mobile.UWP.ExceptionHandling
         {
         }
 
-        private void OnCurrentApplicationUnhandledException(object sender, UnhandledExceptionEventArgs e)
+        private async void OnCurrentApplicationUnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            e.Handled = HandleException(e.Exception);
+            e.Handled = await HandleException(e.Exception).ConfigureAwait(false);
         }
 
         protected override void Attach()

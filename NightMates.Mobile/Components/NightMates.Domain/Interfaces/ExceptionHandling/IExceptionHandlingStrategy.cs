@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace NightMates.Domain.Interfaces.ExceptionHandling
 {
     public interface IExceptionHandlingStrategy
     {
-        bool HandleException(Exception exception);
+        Task<bool> HandleException(Exception exception);
     }
 }

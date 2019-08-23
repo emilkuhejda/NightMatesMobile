@@ -32,11 +32,11 @@ namespace NightMates.Mobile.Droid.ExceptionHandling
             }
         }
 
-        private void AndroidEnvironmentUnhandledExceptionRaiser(object sender, RaiseThrowableEventArgs e)
+        private async void AndroidEnvironmentUnhandledExceptionRaiser(object sender, RaiseThrowableEventArgs e)
         {
             if (e.Exception != null)
             {
-                e.Handled = HandleException(e.Exception);
+                e.Handled = await HandleException(e.Exception).ConfigureAwait(false);
             }
         }
     }

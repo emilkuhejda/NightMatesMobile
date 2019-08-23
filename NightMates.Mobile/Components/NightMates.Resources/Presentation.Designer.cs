@@ -86,5 +86,32 @@ namespace NightMates.Resources {
                 return ResourceManager.GetString("Slovak", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unresolved exception has occurred..
+        /// </summary>
+        public static string UnhandledExceptionAlertMessage {
+            get {
+                return ResourceManager.GetString("UnhandledExceptionAlertMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string UnhandledExceptionAlertOkButtonText {
+            get {
+                return ResourceManager.GetString("UnhandledExceptionAlertOkButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error.
+        /// </summary>
+        public static string UnhandledExceptionAlertTitle {
+            get {
+                return ResourceManager.GetString("UnhandledExceptionAlertTitle", resourceCulture);
+            }
+        }
     }
 }
