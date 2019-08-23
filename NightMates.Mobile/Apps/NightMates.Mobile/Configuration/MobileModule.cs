@@ -23,7 +23,10 @@ namespace NightMates.Mobile.Configuration
 
         private static void RegisterPages(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterForNavigation<NightMatesNavigationPage>(Pages.Navigation);
+            containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>(Pages.Login);
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>(Pages.Main);
+            containerRegistry.RegisterForNavigation<SettingsPage, SettingsPageViewModel>(Pages.Settings);
         }
     }
 }

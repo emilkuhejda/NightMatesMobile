@@ -21,7 +21,7 @@ namespace NightMates.Mobile
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync($"/{Pages.Main}");
+            NavigationService.NavigateAsync($"/{Pages.Login}");
         }
     }
 }
