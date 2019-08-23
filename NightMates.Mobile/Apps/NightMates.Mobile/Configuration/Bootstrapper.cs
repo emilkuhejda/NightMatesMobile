@@ -1,5 +1,6 @@
 ﻿using NightMates.Business;
 using NightMates.DataAccess;
+using NightMates.Domain.Interfaces.ExceptionHandling;
 using NightMates.Domain.Interfaces.Required;
 using NightMates.Logging;
 using NightMates.Mobile.Localization;
@@ -35,6 +36,8 @@ namespace NightMates.Mobile.Configuration
         private void InitializeServices(IContainerRegistry containerRegistry)
         {
             LocalizationExtension.Init(() => containerRegistry.GetContainer().Resolve<ILocalizer>());
+
+            containerRegistry.GetContainer().Resolve<IExceptionHandler>().RegisterForExceptions();
         }
     }
 }

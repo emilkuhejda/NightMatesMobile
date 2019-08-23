@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NightMates.Common\NightMates.Common.csproj" />
+    <ProjectReference Include="..\NightMates.Domain\NightMates.Domain.csproj" />
   </ItemGroup>
 
 </Project>

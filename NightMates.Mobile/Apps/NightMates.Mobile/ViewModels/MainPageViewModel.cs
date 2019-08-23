@@ -1,4 +1,5 @@
-﻿using NightMates.Logging.Interfaces;
+﻿using System;
+using NightMates.Logging.Interfaces;
 
 namespace NightMates.Mobile.ViewModels
 {
@@ -7,6 +8,7 @@ namespace NightMates.Mobile.ViewModels
         public MainPageViewModel(ILoggerFactory loggerFactory)
             : base(loggerFactory)
         {
+            throw new ArgumentException(nameof(loggerFactory));
         }
     }
 }

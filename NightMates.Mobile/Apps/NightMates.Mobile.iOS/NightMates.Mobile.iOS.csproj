@@ -91,6 +91,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Configuration\OsxBootstrapper.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandler.cs" />
+    <Compile Include="ExceptionHandling\NativeMethods.cs" />
     <Compile Include="Localization\Localizer.cs" />
     <Compile Include="Logging\NLogFileReader.cs" />
     <Compile Include="Logging\NLogLoggerConfiguration.cs" />
@@ -157,6 +159,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\Components\NightMates.Business\NightMates.Business.csproj">
+      <Project>{aca76cb1-1c67-48e6-bee7-4f6110359727}</Project>
+      <Name>NightMates.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Components\NightMates.Domain\NightMates.Domain.csproj">
       <Project>{3c3ff970-4065-4ae5-87bc-85ccedf5d620}</Project>
       <Name>NightMates.Domain</Name>
