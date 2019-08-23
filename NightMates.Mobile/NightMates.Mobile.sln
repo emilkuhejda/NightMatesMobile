@@ -16,18 +16,22 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{1F23946E-647A-4F52-985B-B24F8EAB5AEB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_global", "_global", "{1AB71977-AE07-492F-83FB-F84ABF77975B}"
+	ProjectSection(SolutionItems) = preProject
+		Global\AssemblyInfo.cs = Global\AssemblyInfo.cs
+		Global\NightMates.CodeAnalysis.ruleset = Global\NightMates.CodeAnalysis.ruleset
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.Business", "Components\NightMates.Business\NightMates.Business.csproj", "{ACA76CB1-1C67-48E6-BEE7-4F6110359727}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.Business", "Components\NightMates.Business\NightMates.Business.csproj", "{ACA76CB1-1C67-48E6-BEE7-4F6110359727}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.Common", "Components\NightMates.Common\NightMates.Common.csproj", "{58907983-491F-4232-9EB3-EB5D6E0490C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.Common", "Components\NightMates.Common\NightMates.Common.csproj", "{58907983-491F-4232-9EB3-EB5D6E0490C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.DataAccess", "Components\NightMates.DataAccess\NightMates.DataAccess.csproj", "{FF22537C-7F00-4185-811D-BA742F937CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.DataAccess", "Components\NightMates.DataAccess\NightMates.DataAccess.csproj", "{FF22537C-7F00-4185-811D-BA742F937CF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.Domain", "Components\NightMates.Domain\NightMates.Domain.csproj", "{3C3FF970-4065-4AE5-87BC-85CCEDF5D620}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.Domain", "Components\NightMates.Domain\NightMates.Domain.csproj", "{3C3FF970-4065-4AE5-87BC-85CCEDF5D620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.Logging", "Components\NightMates.Logging\NightMates.Logging.csproj", "{9E065F80-44C6-4E6E-B01D-E237E94C32B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.Logging", "Components\NightMates.Logging\NightMates.Logging.csproj", "{9E065F80-44C6-4E6E-B01D-E237E94C32B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NightMates.Resources", "Components\NightMates.Resources\NightMates.Resources.csproj", "{3C20BDE1-9439-4758-BEC5-C8F135FC4952}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NightMates.Resources", "Components\NightMates.Resources\NightMates.Resources.csproj", "{3C20BDE1-9439-4758-BEC5-C8F135FC4952}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

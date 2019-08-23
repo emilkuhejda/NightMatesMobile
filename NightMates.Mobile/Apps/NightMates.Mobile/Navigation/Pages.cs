@@ -1,6 +1,6 @@
 ﻿namespace NightMates.Mobile.Navigation
 {
-    public class Pages
+    public static class Pages
     {
         public static string Navigation { get; } = "Navigation";
 

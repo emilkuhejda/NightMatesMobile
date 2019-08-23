@@ -19,23 +19,25 @@ namespace NightMates.Mobile.Utils
             else
             {
                 // Not on UI thread
-                var resetEvent = new ManualResetEvent(false);
-                Device.BeginInvokeOnMainThread(() =>
+                using (var resetEvent = new ManualResetEvent(false))
                 {
-                    try
+                    Device.BeginInvokeOnMainThread(() =>
                     {
-                        action();
-                    }
-                    finally
-                    {
-                        resetEvent.Set();
-                    }
-                });
+                        try
+                        {
+                            action();
+                        }
+                        finally
+                        {
+                            resetEvent.Set();
+                        }
+                    });
 
-                var timeout = Debugger.IsAttached ? TimeSpan.FromDays(1) : Timeout;
-                if (!resetEvent.WaitOne(timeout))
-                {
-                    throw new TimeoutException("Possible deadlock detected.");
+                    var timeout = Debugger.IsAttached ? TimeSpan.FromDays(1) : Timeout;
+                    if (!resetEvent.WaitOne(timeout))
+                    {
+                        throw new TimeoutException("Possible deadlock detected.");
+                    }
                 }
             }
         }
@@ -49,24 +51,26 @@ namespace NightMates.Mobile.Utils
             }
 
             // Not on UI thread
-            var resetEvent = new ManualResetEvent(false);
-            var result = default(T);
-            Device.BeginInvokeOnMainThread(() =>
+            using (var resetEvent = new ManualResetEvent(false))
             {
-                try
+                var result = default(T);
+                Device.BeginInvokeOnMainThread(() =>
                 {
-                    result = action();
-                }
-                finally
+                    try
+                    {
+                        result = action();
+                    }
+                    finally
+                    {
+                        resetEvent.Set();
+                    }
+                });
+                if (!resetEvent.WaitOne(Timeout))
                 {
-                    resetEvent.Set();
+                    throw new TimeoutException("Possible deadlock detected.");
                 }
-            });
-            if (!resetEvent.WaitOne(Timeout))
-            {
-                throw new TimeoutException("Possible deadlock detected.");
+                return result;
             }
-            return result;
         }
     }
 }
